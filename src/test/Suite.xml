@@ -5,12 +5,19 @@
 
     <listeners>
         <listener class-name="listeners.AnnotationTransformer"/>
+        <listener class-name="listeners.TestListener"/>
     </listeners>
 
-    <test name = "Home Page">
+    <test name = "UI Components">
         <classes>
-            <class name = "tests.homePage.SearchingTest" />
-            <class name = "tests.homePage.NavigationMenuTest" />
+            <class name = "tests.components.homePage.SearchingTest" />
+            <class name = "tests.components.homePage.NavigationMenuTest" />
+        </classes>
+    </test>
+
+    <test name = "E2E">
+        <classes>
+            <class name = "tests.e2e.EndToEndTest" />
         </classes>
     </test>
 

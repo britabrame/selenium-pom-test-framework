@@ -1,4 +1,4 @@
-package tests.homePage;
+package tests.components.homePage;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

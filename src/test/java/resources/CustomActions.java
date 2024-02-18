@@ -1,20 +1,27 @@
 package resources;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.function.Consumer;
 
 public class CustomActions {
     WebDriver driver;
     Actions action;
+    Wait wait;
+    Duration duration;
 
     public CustomActions(WebDriver driver) {
         this.driver = driver;
         action = new Actions(driver);
+        duration = Duration.ofSeconds(10);
+        wait = new WebDriverWait(driver, duration);
+
     }
 
     /**
@@ -57,5 +64,20 @@ public class CustomActions {
         }
         return false;
     }
+
+    public void search(WebElement searchBox, String searchTerm, WebElement elementToWaitFor) {
+        searchBox.clear();
+        searchBox.sendKeys(searchTerm + Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOf(elementToWaitFor));
+    }
+
+    public void waitForPageLoad() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

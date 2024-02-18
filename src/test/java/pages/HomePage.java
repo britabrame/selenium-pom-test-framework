@@ -1,5 +1,6 @@
 package pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -213,6 +214,12 @@ public class HomePage {
 
     public WebElement getSaleLink() {
         return wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(saleLink)));
+    }
+
+    public void searchFor(String searchTerm) {
+        getSearch().clear();
+        getSearch().sendKeys(searchTerm + Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".search.results")));
     }
 
 }

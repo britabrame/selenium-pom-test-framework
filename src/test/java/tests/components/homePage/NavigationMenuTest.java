@@ -1,4 +1,4 @@
-package tests.homePage;
+package tests.components.homePage;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
