@@ -38,7 +38,6 @@ public abstract class BaseTest  {
     public void setupTestCase(ITestContext context) {
         // Initialize the driver based on configured browser
         DriverInit driverInit = new DriverInit();
-//        driver = driverInit.getDriver(properties.getProperty("browser"));
         context.setAttribute("driver", driverInit.getDriver(properties.getProperty("browser")));
         driver = (WebDriver) context.getAttribute("driver");
 

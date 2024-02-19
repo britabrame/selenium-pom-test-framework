@@ -54,7 +54,7 @@ public class SearchResultsPage {
     }
 
     public void addItemToCart(String name, String size, String color) {
-//        List<WebElement> list = getProductItemDetails();
+        // Get the list of all products from search results. Add the item with matching name to cart.
         List<WebElement> list = getProductItems();
         for (WebElement webElement : list) {
             String currentProductName = wait.until(ExpectedConditions.visibilityOf(webElement.findElement(productItemLink))).getText();
@@ -110,8 +110,5 @@ public class SearchResultsPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchResults));
     }
 
-//    public void waitForSearchResultsToLoad() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(searchResults));
-//    }
 
 }
